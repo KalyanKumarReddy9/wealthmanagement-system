@@ -4,7 +4,7 @@ from typing import List
 
 # MongoDB Connection Details
 # Replace with actual credentials in production or env vars
-MONGO_URL = "mongodb://localhost:27017"
+MONGO_URL = "mongodb+srv://iamavinash1947_db_user:Avinash%40201647@cluster0.9kwmf6r.mongodb.net/?appName=Cluster0"
 DATABASE_NAME = "wealth_db"
 
 async def init_db(document_models: List):
