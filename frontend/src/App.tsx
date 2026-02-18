@@ -3,10 +3,13 @@ import { AuthProvider } from './context/AuthContext';
 import { DashboardLayout } from './layouts/DashboardLayout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Login } from './pages/Login';
+import { Signup } from './pages/Signup';
 import { Dashboard } from './pages/Dashboard';
 import { Transactions } from './pages/Transactions';
 import { Goals } from './pages/Goals';
 import { Profile } from './pages/Profile';
+import { Budget } from './pages/Budget';
+import { Investments } from './pages/Investments';
 
 function App() {
   return (
@@ -14,15 +17,15 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Login />} /> {/* Placeholder to Login for now */}
+          <Route path="/signup" element={<Signup />} />
 
           <Route element={<ProtectedRoute />}>
             <Route element={<DashboardLayout />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/transactions" element={<Transactions />} />
-              <Route path="/budget" element={<div className="p-4">Budget Page (Coming Soon)</div>} />
+              <Route path="/budget" element={<Budget />} />
               <Route path="/goals" element={<Goals />} />
-              <Route path="/investments" element={<div className="p-4">Investments Page (Coming Soon)</div>} />
+              <Route path="/investments" element={<Investments />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
           </Route>

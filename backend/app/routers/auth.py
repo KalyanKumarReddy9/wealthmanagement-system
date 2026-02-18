@@ -8,10 +8,21 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 @router.post("/auth/register", response_model=schemas.User)
 async def register(user: schemas.UserCreate):
+    # Log incoming attempt (avoid printing passwords)
+    try:
+        print(f"[auth.register] incoming registration for email: {user.email}")
+    except Exception:
+        pass
+
     db_user = await crud.get_user_by_email(email=user.email)
     if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    return await crud.create_user(user=user)
+        raise HTTPException(status_code=409, detail="Email already registered")
+    try:
+        created = await crud.create_user(user=user)
+        # Ensure the response matches the response_model
+        return schemas.User(**created)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to create user: {e}")
 
 @router.post("/auth/token", response_model=schemas.Token)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):

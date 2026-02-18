@@ -33,3 +33,15 @@ class Goal(Document):
 
     class Settings:
         name = "goals"
+
+class Asset(Document):
+    user_id: str
+    name: str  # e.g., "House", "Car", "Stocks", "Savings Account", etc.
+    type: str  # e.g., "real_estate", "vehicle", "investment", "cash", "other"
+    current_value: float
+    purchase_date: Optional[datetime] = None
+    notes: Optional[str] = None
+    created_at: datetime = Field(default_factory=datetime.now)
+
+    class Settings:
+        name = "assets"

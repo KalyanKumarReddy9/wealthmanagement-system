@@ -40,3 +40,14 @@ export interface Goal {
     deadline?: string;
     completed: boolean;
 }
+
+export interface Asset {
+    id: string;
+    user_id: string;
+    name: string;
+    type: string;
+    current_value: number;
+    purchase_date?: string;
+    notes?: string;
+    created_at: string;
+}

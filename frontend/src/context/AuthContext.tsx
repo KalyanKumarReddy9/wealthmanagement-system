@@ -60,8 +60,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             // After signup, user usually needs to login. 
             // We can auto-login or redirect to login page.
         } catch (error) {
-            console.error('Signup failed', error);
-            throw error;
+            // Try to extract server error message
+            const errMessage = (error as any)?.response?.data?.detail || (error as any)?.message || 'Signup failed';
+            console.error('Signup failed', errMessage);
+            throw new Error(errMessage);
         }
     };
 
