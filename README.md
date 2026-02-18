@@ -557,16 +557,6 @@ Update the API base URL in `src/api/client.ts` if needed (default: `http://local
 - Preview production build: `npm run preview`
 - Lint code: `npm run lint`
 
-## 🎯 Features
-
-- **User Authentication**: Secure JWT-based authentication
-- **Transaction Management**: Track income and expenses with categories
-- **Financial Goals**: Set and monitor progress towards financial goals
-- **Asset Management**: Manage and track all your assets (real estate, vehicles, investments, etc.)
-- **Dashboard Analytics**: Visual charts showing net worth, monthly trends, and category breakdowns
-- **Budget Tracking**: Monitor spending patterns and budget allocation
-- **Responsive Design**: Mobile-friendly interface with TailwindCSS
-
 ## 🛠️ Technologies Used
 
 ### Frontend
@@ -589,26 +579,3 @@ Update the API base URL in `src/api/client.ts` if needed (default: `http://local
 ## 📝 License
 
 This project is open source and available under the MIT License.
-
-## 👥 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 🐛 Known Issues
-
-- None at the moment
-
-## 📧 Contact
-
-For any questions or support, please open an issue in the GitHub repository.
-
-    ```bash
-    npm run dev
-    ```
-    Open `http://localhost:5173` in your browser.
-
-## Tech Stack
--   **Frontend**: React, TypeScript, Tailwind CSS, Recharts, Lucide React.
--   **Backend**: FastAPI, Beanie (MongoDB ODM), Motor, Pydantic.
--   **Database**: MongoDB.
--   **Auth**: JWT (JSON Web Tokens).
